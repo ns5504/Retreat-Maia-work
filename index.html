@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawal Sarwar × Retreat Maia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a8c6e;
+    --sage-light: #b8c5ad;
+    --sage-pale: #e8ede4;
+    --earth: #8b6f47;
+    --earth-light: #c9a87c;
+    --cream: #f5f0e8;
+    --linen: #ede8dc;
+    --bark: #3d3228;
+    --smoke: #6b6560;
+    --gold: #c4a35a;
+    --gold-pale: #f0e8d0;
+    --forest: #2d3d2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    line-height: 1.7;
+  }
+
+  /* ── HERO ───────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(122,140,110,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(196,163,90,0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-text {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 32px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 80px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 48px;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.75);
+    max-width: 360px;
+    line-height: 1.5;
+    border-left: 1px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .mandala-wrap {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    opacity: 0.7;
+  }
+
+  .mandala-wrap svg {
+    width: 100%;
+    height: 100%;
+    animation: slowSpin 60s linear infinite;
+  }
+
+  @keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: slowSpin 60s linear infinite reverse;
+  }
+
+  .hero-badge span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .hero-badge small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage-light);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--sage-light);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--sage-light);
+  }
+
+  /* ── SECTION WRAPPER ─────────────────────────────────── */
+  section {
+    padding: 100px 80px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  /* ── COVER LETTER ───────────────────────────────────── */
+  .cover-letter {
+    background: var(--linen);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .cover-sidebar {
+    position: sticky;
+    top: 40px;
+  }
+
+  .cover-sidebar .big-initial {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 140px;
+    font-weight: 300;
+    color: var(--sage-pale);
+    line-height: 0.9;
+    margin-bottom: 32px;
+  }
+
+  .contact-block {
+    border-top: 1px solid var(--sage-light);
+    padding-top: 24px;
+  }
+
+  .contact-block p {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--smoke);
+    margin-bottom: 6px;
+  }
+
+  .contact-block strong {
+    color: var(--forest);
+    font-weight: 500;
+  }
+
+  .cover-body p {
+    font-size: 15px;
+    color: var(--bark);
+    margin-bottom: 24px;
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  .cover-body .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+
+  .cover-body strong {
+    color: var(--forest);
+    font-weight: 500;
+  }
+
+  .cover-body em {
+    font-style: italic;
+    color: var(--earth);
+  }
+
+  .pitch-box {
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 2px;
+    padding: 36px 40px;
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .pitch-box::before {
+    content: '✦  PITCH IDEA';
+    position: absolute;
+    top: -1px;
+    left: 40px;
+    transform: translateY(-50%);
+    background: var(--gold);
+    color: var(--forest);
+    font-size: 9px;
+    letter-spacing: 3px;
+    padding: 4px 14px;
+    font-weight: 500;
+  }
+
+  .pitch-box h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--cream);
+  }
+
+  .pitch-box p {
+    font-size: 14px;
+    color: rgba(245,240,232,0.8);
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .fit-card {
+    background: var(--cream);
+    border: 1px solid var(--sage-pale);
+    border-radius: 2px;
+    padding: 24px;
+  }
+
+  .fit-card .icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .fit-card h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+
+  .fit-card p {
+    font-size: 13px;
+    color: var(--smoke);
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  .sign-off {
+    margin-top: 40px;
+    border-top: 1px solid var(--sage-light);
+    padding-top: 32px;
+  }
+
+  .sign-off p {
+    margin-bottom: 6px;
+  }
+
+  .signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--forest);
+    margin-top: 12px;
+  }
+
+  /* ── MOOD BOARD ─────────────────────────────────────── */
+  .mood-board {
+    background: var(--cream);
+    padding-top: 80px;
+  }
+
+  .mood-board-header {
+    text-align: center;
+    padding: 0 80px 60px;
+  }
+
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 2px;
+  }
+
+  /* Color Palette */
+  .palette-row {
+    grid-column: 1 / -1;
+    display: flex;
+    height: 60px;
+    margin: 0 80px 80px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .swatch {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 12px;
+    position: relative;
+  }
+
+  .swatch span {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Mood Tiles */
+  .tile {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tile-inner {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+
+  .t1 { grid-column: 1 / 5; grid-row: 1; }
+  .t2 { grid-column: 5 / 8; grid-row: 1; }
+  .t3 { grid-column: 8 / 13; grid-row: 1; }
+  .t4 { grid-column: 1 / 4; grid-row: 2; }
+  .t5 { grid-column: 4 / 9; grid-row: 2; }
+  .t6 { grid-column: 9 / 13; grid-row: 2; }
+  .t7 { grid-column: 1 / 7; grid-row: 3; }
+  .t8 { grid-column: 7 / 10; grid-row: 3; }
+  .t9 { grid-column: 10 / 13; grid-row: 3; }
+
+  /* Tile Themes */
+  .bg-forest { background: var(--forest); }
+  .bg-sage { background: var(--sage); }
+  .bg-cream { background: var(--cream); border: 1px solid var(--linen); }
+  .bg-earth { background: var(--earth); }
+  .bg-linen { background: var(--linen); }
+  .bg-gold { background: var(--gold); }
+  .bg-bark { background: var(--bark); }
+  .bg-pattern {
+    background: var(--sage-pale);
+    background-image: radial-gradient(circle, var(--sage) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .bg-gradient {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 60%, var(--gold) 100%);
+  }
+
+  .tile-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .tile-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2.5vw, 36px);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .tile-sub {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 12px;
+    opacity: 0.8;
+  }
+
+  .on-dark { color: var(--cream); }
+  .on-dark .tile-label { color: var(--sage-light); }
+
+  .on-light { color: var(--forest); }
+  .on-light .tile-label { color: var(--sage); }
+
+  .on-gold { color: var(--forest); }
+  .on-gold .tile-label { color: rgba(61,50,40,0.6); }
+
+  /* Decorative SVG tiles */
+  .icon-tile {
+    background: var(--bark);
+    color: var(--cream);
+  }
+
+  .icon-tile svg {
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+
+  /* Pillars */
+  .pillars {
+    background: var(--forest);
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .pillars-intro { }
+
+  .pillars-intro .section-label { color: var(--sage-light); }
+  .pillars-intro .section-title { color: var(--cream); }
+
+  .pillars-intro p {
+    color: rgba(245,240,232,0.65);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .pillar-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,197,173,0.15);
+    padding: 40px 36px;
+    transition: background 0.3s;
+  }
+
+  .pillar-card:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(196,163,90,0.25);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pillar-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .pillar-card p {
+    font-size: 13px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.8;
+  }
+
+  .pillar-tag {
+    display: inline-block;
+    background: rgba(122,140,110,0.2);
+    border: 1px solid var(--sage);
+    color: var(--sage-light);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 16px;
+  }
+
+  /* Why Me */
+  .why-me {
+    background: var(--linen);
+    padding: 100px 80px;
+  }
+
+  .why-me-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .why-card {
+    border-top: 2px solid var(--sage);
+    padding-top: 32px;
+  }
+
+  .why-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--forest);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .why-card p {
+    font-size: 14px;
+    color: var(--smoke);
+    line-height: 1.8;
+  }
+
+  .why-card .tag {
+    display: inline-block;
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 16px;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--bark);
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .footer-right {
+    text-align: right;
+    color: rgba(245,240,232,0.5);
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 2;
+  }
+
+  .footer-right a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* Print / PDF */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Summer 2026 · Social Media & Design Internship</p>
+    <h1 class="hero-name">Nawal<br><em>Sarwar</em></h1>
+    <p class="hero-role">Data &amp; Design · CS + Visual Arts</p>
+    <p class="hero-tagline">Designing at the place where data becomes beauty and presence becomes purpose.</p>
+  </div>
+
+  <div class="hero-visual">
+    <div class="mandala-wrap">
+      <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="190" cy="190" r="180" stroke="rgba(122,140,110,0.3)" stroke-width="1"/>
+        <circle cx="190" cy="190" r="150" stroke="rgba(196,163,90,0.2)" stroke-width="1"/>
+        <circle cx="190" cy="190" r="120" stroke="rgba(122,140,110,0.25)" stroke-width="1"/>
+        <circle cx="190" cy="190" r="90" stroke="rgba(196,163,90,0.3)" stroke-width="1"/>
+        <circle cx="190" cy="190" r="60" stroke="rgba(122,140,110,0.35)" stroke-width="1"/>
+        <!-- 8-petal lotus -->
+        <g opacity="0.4">
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(45 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(90 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(135 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(180 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(225 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(270 190 190)"/>
+          <ellipse cx="190" cy="130" rx="16" ry="55" fill="rgba(196,163,90,0.3)" stroke="rgba(196,163,90,0.5)" stroke-width="0.5" transform="rotate(315 190 190)"/>
+        </g>
+        <!-- Outer filigree lines -->
+        <g opacity="0.25" stroke="rgba(184,197,173,0.8)" stroke-width="0.5">
+          <line x1="190" y1="10" x2="190" y2="370"/>
+          <line x1="10" y1="190" x2="370" y2="190"/>
+          <line x1="53" y1="53" x2="327" y2="327"/>
+          <line x1="327" y1="53" x2="53" y2="327"/>
+          <line x1="10" y1="130" x2="370" y2="250"/>
+          <line x1="10" y1="250" x2="370" y2="130"/>
+        </g>
+        <circle cx="190" cy="190" r="12" fill="rgba(196,163,90,0.6)"/>
+        <circle cx="190" cy="190" r="5" fill="rgba(196,163,90,1)"/>
+      </svg>
+    </div>
+    <div class="hero-badge">
+      <span>māyā</span>
+      <small>lifting the veil</small>
+    </div>
+  </div>
+
+  <div class="hero-scroll">scroll to explore</div>
+</div>
+
+
+<!-- ── COVER LETTER ──────────────────────────────────── -->
+<section class="cover-letter">
+  <div class="cover-sidebar">
+    <div class="big-initial">N.</div>
+    <div class="contact-block">
+      <p><strong>Nawal Sarwar</strong></p>
+      <p>New York</p>
+      <p>ns5504.github.io/NS_Portfolio</p>
+      <p>B.S. Computer & Information Science</p>
+      <p>Minor: Visual Arts - SUNY Old Westbury</p>
+      <p style="margin-top:16px; color: #7a8c6e;">GPA 3.9</p>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <p class="section-label">Cover Letter</p>
+    <h2 class="section-title" style="margin-bottom: 32px;">The Veil Is the Brief.</h2>
+
+    <p class="lead">Dear Madi and Leah - I've been studying your work long enough to know that what you build isn't content. It's clarity. And that's exactly what I do.</p>
+
+    <p>From the moment I landed on retreatmaia.com, I noticed something most brands get wrong: you've built a world that <em>feels</em> before it explains. Brown noise autoplaying. The word māyā unpacked before your services. Testimonials from real humans named Bridget and Chris. You are not selling wellness - you are creating conditions for presence. That precision is what drew me in.</p>
+
+    <p>I'm a recent Computer Science and Visual Arts, and my work lives exactly at the intersection where yours is heading. I've built <strong>AI-powered data platforms</strong>, designed <strong>UI/UX flows in Figma</strong>, run NLP models on human language, and spent four years making visual art. I don't treat design and analytics as separate departments. For me, they're the same conversation - one is listening, the other is speaking.</p>
+
+    <p>What I love most about this internship is the words "mold this role around a candidate's strengths." That's rare. And it tells me something important about how you operate. So here's what I'd bring to the table:</p>
+
+    <div class="fit-grid">
+      <div class="fit-card">
+        <span class="icon">📊</span>
+        <h5>Intelligence-Driven Social</h5>
+        <p>I don't just post - I decode engagement patterns. Equinox-timed retreat drops, moon circle nights, Bali collaborations - your content has natural data architecture waiting to be mapped. I'd build that into every caption and story sequence.</p>
+      </div>
+      <div class="fit-card">
+        <span class="icon">✦</span>
+        <h5>AI-Enhanced Design</h5>
+        <p>I built Vogue Futures, an AI fashion trend intelligence platform - same principle, different vertical. I know how to integrate AI workflows into creative production without making the output feel synthetic.</p>
+      </div>
+      <div class="fit-card">
+        <span class="icon">🌿</span>
+        <h5>Your Aesthetic, Amplified</h5>
+        <p>Forest greens, linen tones, sacred geometry, clean serif type - I built this entire mood board to mirror your visual world. I'd be designing <em>for</em> Retreat Maia, not importing my own aesthetic onto yours.</p>
+      </div>
+      <div class="fit-card">
+        <span class="icon">🔗</span>
+        <h5>UX Thinking in Social</h5>
+        <p>From my UI/UX background: every touchpoint is a user flow. Your Instagram grid isn't a gallery, it's an onboarding sequence. I'd treat it that way, with intention behind every scroll stop.</p>
+      </div>
+    </div>
+
+    <div class="pitch-box">
+      <h4>A Pitch I'd Bring on Day One</h4>
+      <p><strong>"The Equinox Series" , A Seasonal Content System</strong></p>
+      <p>You already time your retreats to equinoxes. That's a gift. I'd build a recurring content framework around this: each season gets a visual identity shift (colors, filters, typography weight), an engagement challenge rooted in that season's theme, and a data dashboard tracking which seasonal content drives the highest retreat inquiry rates. Ireland 2026 lands right on the Autumn Equinox — we start building the content arc 8 weeks out, shifting from "letting go" micro-content to full retreat storytelling. By the time registration opens, your audience has been emotionally prepared to say yes.</p>
+      <p>Data-backed. Soulful. Retreatmaia.com in content form.</p>
+    </div>
+
+    <p>I am genuinely moved by what you two have built, the way it started in a yoga teacher training and became retreats in Ireland and Costa Rica, a merchandise line, a corporate wellness arm, an archive. You're growing fast and you're growing with intention. I want to be part of that.</p>
+
+    <p>I'm available to start Summer 2026 and would love to bring both my analytical mind and my artist's eye to Retreat Maia's next chapter. Thank you for reading this far, and for creating work that makes people want to write letters like this.</p>
+
+    <div class="sign-off">
+      <p style="font-size:13px; color: var(--smoke); letter-spacing: 1px;">With presence and precision,</p>
+      <div class="signature">Nawal Sarwar</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── MOOD BOARD ────────────────────────────────────── -->
+<section class="mood-board" style="padding: 100px 0 0;">
+  <div class="mood-board-header">
+    <p class="section-label">Visual Mood Board</p>
+    <h2 class="section-title">Retreat Maia's World - <em style="font-family:'Playfair Display',serif;">Seen Clearly</em></h2>
+    <p style="color: var(--smoke); max-width: 520px; margin: 0 auto; font-size: 14px; line-height: 1.8;">Every tile below maps to a real signal from retreatmaia.com - color, copy, cadence, clientele. This is the aesthetic I'd protect and expand.</p>
+  </div>
+
+  <!-- Color Palette -->
+  <div class="palette-row" style="margin: 40px 80px 60px;">
+    <div class="swatch" style="background:#2d3d2a;"><span style="color:rgba(245,240,232,0.5); font-size:8px;">FOREST</span></div>
+    <div class="swatch" style="background:#7a8c6e;"><span style="color:rgba(245,240,232,0.7); font-size:8px;">SAGE</span></div>
+    <div class="swatch" style="background:#b8c5ad;"><span style="color:#3d3228; font-size:8px;">SAGE LIGHT</span></div>
+    <div class="swatch" style="background:#e8ede4; border:1px solid #cdd5c5;"><span style="color:#7a8c6e; font-size:8px;">SAGE PALE</span></div>
+    <div class="swatch" style="background:#c4a35a;"><span style="color:#3d3228; font-size:8px;">GOLD</span></div>
+    <div class="swatch" style="background:#8b6f47;"><span style="color:rgba(245,240,232,0.7); font-size:8px;">EARTH</span></div>
+    <div class="swatch" style="background:#ede8dc; border:1px solid #ddd6c8;"><span style="color:#8b6f47; font-size:8px;">LINEN</span></div>
+    <div class="swatch" style="background:#f5f0e8; border:1px solid #e8e0d0;"><span style="color:#8b6f47; font-size:8px;">CREAM</span></div>
+    <div class="swatch" style="background:#3d3228;"><span style="color:rgba(245,240,232,0.5); font-size:8px;">BARK</span></div>
+  </div>
+
+  <div class="mood-grid">
+
+    <!-- T1: Brand philosophy -->
+    <div class="tile t1">
+      <div class="tile-inner bg-forest on-dark" style="min-height: 280px;">
+        <div style="position:absolute; top:0; left:0; right:0; bottom:0; background: radial-gradient(ellipse at 30% 70%, rgba(122,140,110,0.2) 0%, transparent 60%); pointer-events:none;"></div>
+        <p class="tile-label">Brand Philosophy</p>
+        <h2 class="tile-headline" style="font-size: clamp(28px, 3vw, 44px); max-width: 340px;">"Rooted in māyā - the veil that clouds our clarity."</h2>
+        <p class="tile-sub" style="max-width:300px; color: rgba(184,197,173,0.8);">Not a product. A philosophy. Every post should lift the veil, not add noise to it.</p>
+      </div>
+    </div>
+
+    <!-- T2: Typography -->
+    <div class="tile t2">
+      <div class="tile-inner bg-cream on-light" style="min-height: 280px; flex-direction:column; align-items:flex-start; padding: 36px 32px;">
+        <p class="tile-label">Type System</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:var(--forest); line-height:1; margin-bottom:8px;">Āa</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; font-style:italic; color:var(--earth); margin-bottom: 20px;">Cormorant Garamond</p>
+        <p style="font-family:'DM Sans',sans-serif; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--sage); margin-bottom: 6px;">DM SANS · CLEAN CONTRAST</p>
+        <p style="font-size:13px; color:var(--smoke); line-height:1.7; margin-top:12px;">Serif soul + sans precision.<br>Warmth without whimsy.</p>
+      </div>
+    </div>
+
+    <!-- T3: Equinox Concept -->
+    <div class="tile t3">
+      <div class="tile-inner bg-gradient on-dark" style="min-height: 280px;">
+        <p class="tile-label" style="color:rgba(184,197,173,0.8);">Signature Positioning</p>
+        <h3 class="tile-headline" style="font-size: clamp(24px, 2.5vw, 38px);">Retreat on<br>the Equinox</h3>
+        <p class="tile-sub" style="color: rgba(245,240,232,0.75);">Ireland, Sept 20–25 ·<br>Costa Rica, March 17–22<br>Light &amp; dark, equal and ready.</p>
+      </div>
+    </div>
+
+    <!-- T4: Ritual post template -->
+    <div class="tile t4">
+      <div class="tile-inner on-dark" style="background:var(--bark); min-height:260px; gap:12px;">
+        <p class="tile-label" style="color:var(--sage-light);">Content Archetype</p>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5;">
+          <circle cx="20" cy="20" r="18" stroke="#b8c5ad" stroke-width="1"/>
+          <circle cx="20" cy="20" r="10" stroke="#c4a35a" stroke-width="1"/>
+          <line x1="20" y1="2" x2="20" y2="38" stroke="#b8c5ad" stroke-width="0.5"/>
+          <line x1="2" y1="20" x2="38" y2="20" stroke="#b8c5ad" stroke-width="0.5"/>
+          <circle cx="20" cy="20" r="3" fill="#c4a35a"/>
+        </svg>
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--cream);">Sacred Circle</h4>
+        <p style="font-size:12px; color:rgba(184,197,173,0.7); line-height:1.7;">Full moon gatherings, sound baths, feminine energy. The ritual calendar is your content calendar.</p>
+      </div>
+    </div>
+
+    <!-- T5: Big quote -->
+    <div class="tile t5">
+      <div class="tile-inner bg-sage-pale on-light" style="background:var(--sage-pale); min-height:260px;">
+        <p class="tile-label">Voice Sample</p>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2.2vw,28px); font-weight:300; color:var(--forest); line-height:1.4; max-width:320px;">"This space is yours<br>to <em style='color:var(--earth);'>settle into.</em>"</h3>
+        <p style="font-size:11px; color:var(--smoke); margin-top:16px; letter-spacing:1px;">— retreatmaia.com homepage</p>
+        <p style="font-size:13px; color:var(--smoke); margin-top:16px; line-height:1.7; max-width:280px;">Warmth. Permission. Slowness. Every caption should live in this register.</p>
+      </div>
+    </div>
+
+    <!-- T6: Analytics overlay concept -->
+    <div class="tile t6">
+      <div class="tile-inner on-light" style="background:var(--linen); min-height:260px; align-items:flex-start;">
+        <p class="tile-label">Data Layer</p>
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; color:var(--forest); margin-bottom:20px;">Engagement<br>Intelligence</h4>
+        <div style="width:100%; display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--smoke); border-bottom:1px solid var(--sage-pale); padding-bottom:6px;">
+            <span>Equinox posts</span><span style="color:var(--sage); font-weight:500;">↑ 38%</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--smoke); border-bottom:1px solid var(--sage-pale); padding-bottom:6px;">
+            <span>Ritual content</span><span style="color:var(--sage); font-weight:500;">↑ 52%</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--smoke); border-bottom:1px solid var(--sage-pale); padding-bottom:6px;">
+            <span>Quote carousels</span><span style="color:var(--sage); font-weight:500;">↑ 29%</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--smoke);">
+            <span>Generic wellness</span><span style="color:var(--earth); font-weight:500;">↓ 11%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T7: Wide editorial -->
+    <div class="tile t7">
+      <div class="tile-inner on-dark" style="background:var(--forest); min-height:260px; flex-direction: row; gap:48px; text-align:left; align-items: flex-start;">
+        <div style="flex:0 0 auto;">
+          <p class="tile-label" style="color:var(--sage-light);">Community Roots</p>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.5vw,36px); font-weight:300; color:var(--cream); line-height:1.2; margin-bottom:16px;">Pittsburgh<br>→ Ireland<br>→ Costa Rica</h3>
+          <p style="font-size:12px; color:rgba(184,197,173,0.7); line-height:1.7; max-width:220px;">Local roots. Global retreats. The brand story is a hero's journey - and the audience gets to be the hero.</p>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:16px; padding-top: 8px;">
+          <div style="background:rgba(255,255,255,0.05); border-left:2px solid var(--gold); padding:16px 20px;">
+            <p style="font-size:12px; color:rgba(245,240,232,0.7); line-height:1.7;">"I never really had a yoga community - I felt like I really belonged to one."</p>
+            <p style="font-size:10px; color:var(--sage-light); margin-top:8px; letter-spacing:1px;">- BRIDGET</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05); border-left:2px solid var(--sage); padding:16px 20px;">
+            <p style="font-size:12px; color:rgba(245,240,232,0.7); line-height:1.7;">"The weekend combined the spiritual, physical, and mental aspects."</p>
+            <p style="font-size:10px; color:var(--sage-light); margin-top:8px; letter-spacing:1px;">- CHRIS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T8: AI integration -->
+    <div class="tile t8">
+      <div class="tile-inner on-light" style="background:var(--gold-pale); min-height:260px;">
+        <p class="tile-label" style="color:var(--earth);">My Toolkit</p>
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; color:var(--forest); margin-bottom:16px; line-height:1.2;">AI + Soul</h4>
+        <p style="font-size:12px; color:var(--smoke); line-height:1.8;">Figma · Canva · React<br>GA4 · Looker Studio<br>Python · SQL · NLP<br>Horizon Retail (my own build)</p>
+      </div>
+    </div>
+
+    <!-- T9: Call to action -->
+    <div class="tile t9">
+      <div class="tile-inner on-dark" style="background:var(--sage); min-height:260px;">
+        <p class="tile-label" style="color:rgba(245,240,232,0.7);">Ready for</p>
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; color:var(--cream); line-height:1.2; margin-bottom: 16px;">Summer<br>2026</h4>
+        <p style="font-size:11px; color:rgba(245,240,232,0.8); line-height:1.8; letter-spacing:0.5px;">Present.<br>Precise.<br>Creative.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── PILLARS ─────────────────────────────────────────── -->
+<section class="pillars">
+  <div class="pillars-intro">
+    <p class="section-label">Why It Works</p>
+    <h2 class="section-title">What I Bring</h2>
+    <p>Each pillar maps directly to a gap I spotted in your current digital presence - and a strength I can fill.</p>
+  </div>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <h3>Intelligence-Driven Strategy</h3>
+      <p>I'll use data analytics to decode what content drives retreat sign-ups vs. passive engagement. Your equinox timing, ritual events, and testimonials are a structured dataset waiting to be activated.</p>
+      <span class="pillar-tag">GA4 · Looker Studio · SQL</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <h3>AI-Enhanced Creative Production</h3>
+      <p>I built an AI trend intelligence platform from scratch. I'll apply those same workflows to Retreat Maia's visual content - faster production cycles without losing the warmth that makes your aesthetic work.</p>
+      <span class="pillar-tag">React · Python · Figma</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <h3>UX Thinking Applied to Social</h3>
+      <p>Every post is a micro-UX moment. I'll treat your Instagram grid and stories as a designed user journey, from discovery to retreat inquiry - with intentional scroll-stopping moments at each stage.</p>
+      <span class="pillar-tag">UI/UX · Figma · User Research</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">04</div>
+      <h3>Brand Fluency from Day One</h3>
+      <p>I read your website, studied your testimonials, mapped your color palette, and built this document before applying. I'm not learning your brand on the job. I already speak Retreat Maia.</p>
+      <span class="pillar-tag">Visual Arts Minor · Art Direction</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── WHY ME ─────────────────────────────────────────── -->
+<section class="why-me">
+  <p class="section-label">The Fit</p>
+  <h2 class="section-title">Not Just Qualified -<br><em style="font-family:'Playfair Display',serif;">Aligned</em></h2>
+
+  <div class="why-me-grid">
+    <div class="why-card">
+      <h4>I create at the intersection of data and beauty</h4>
+      <p>CS + Visual Arts isn't a resume quirk - it's my operating system. I've spent four years training both sides of my brain simultaneously. Retreat Maia lives at that same intersection. That's not coincidence; it's fit.</p>
+      <span class="tag">Hybrid Thinker</span>
+    </div>
+    <div class="why-card">
+      <h4>I studied your brand before touching a single tool</h4>
+      <p>This entire document — the color palette, typography, the māyā references, the equinox framing - was reverse-engineered from your actual website. This is what I do for every project: go deep, then create from genuine understanding.</p>
+      <span class="tag">Research-First</span>
+    </div>
+    <div class="why-card">
+      <h4>I've already built the kind of platform you're growing into</h4>
+      <p>Vogue Futures is an AI-powered trend intelligence app with real-time data, custom visual charts, and a UX designed for non-technical users. That's the same skill set you need for a wellness brand scaling its digital presence thoughtfully.</p>
+      <span class="tag">Vogue Futures Portfolio</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<div class="footer">
+  <div class="footer-left">Nawal Sarwar × Retreat Maia</div>
+  <div class="footer-right">
+    <p>ns5504.github.io/NS_Portfolio</p>
+    <p>Summer 2026 · Social Media &amp; Design Internship</p>
+    <p>New York · Available Immediately</p>
+  </div>
+</div>
+
+</body>
+</html>
